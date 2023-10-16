@@ -6,9 +6,12 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+  },
+  active: {
+    type: Boolean,
     required: true,
   },
-  userName: {
+  user_name: {
     type: String,
     required: true,
   },
@@ -16,11 +19,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
+  created_at: {
     type: Number,
     required: true,
   },
-  updatedAt: {
+  updated_at: {
     type: Number,
     required: true,
   },

@@ -10,9 +10,7 @@ router.use(bodyParser.json());
 router.post("/register", (req, res) => v1UserController.register(req, res));
 
 // login user
-router.post("/login", authentificate, (req, res) =>
-  res.json({ token: req.token })
-);
+router.post("/login", (req, res) => v1UserController.login(req, res));
 
 // log out user
 router.post("/logout", (req, res) => {

@@ -41,8 +41,8 @@ const authentificate = async (req, res, next) => {
   next();
 };
 
-const generateToken = (id) => {
-  return jwt.sign({ id }, "&+!freePaySecret@#", { expiresIn: "1hr" });
+const generateToken = async (id) => {
+  return await jwt.sign({ id }, "&+!freePaySecret@#", { expiresIn: "1hr" });
 };
 
 module.exports = {
