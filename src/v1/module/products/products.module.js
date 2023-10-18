@@ -24,9 +24,17 @@ const update = async (id, data) => {
   return productDoc;
 };
 
+const search = async (searchText) => {
+  const result = await ProductModel.find({
+    name: new RegExp(searchText, "i"),
+  });
+  return result;
+};
+
 module.exports = {
   create,
   getById,
   getByPagination,
   update,
+  search,
 };
