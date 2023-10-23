@@ -9,5 +9,6 @@ router.use(bodyParser.json());
 router.post("/", (req, res) => cartsController.create(req, res));
 router.get("/:id", (req, res) => cartsController.getById(req, res));
 router.put("/:id", (req, res) => cartsController.update(req, res));
-//delete route
+router.delete("/:id", (req, res) => cartsController.deleteById(req, res));
+
 module.exports = router;

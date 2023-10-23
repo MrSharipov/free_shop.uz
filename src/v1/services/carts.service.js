@@ -1,11 +1,8 @@
-const create = async (req, res) => {};
-const update = async (req, res) => {};
-const getById = async (req, res) => {};
-const deleteById = async (req, res) => {};
+const update = async (products) => {
+  // Logic to update cart here...
+  return products;
+};
 
 module.exports = {
-  create,
   update,
-  getById,
-  deleteById,
 };

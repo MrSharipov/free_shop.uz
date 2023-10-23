@@ -7,9 +7,19 @@ const create = async (userId, products) => {
     created_at: Date.now(),
   });
 };
+const getById = async (id) => {
+  return await CartModel.findOne({ _id: id, status: "CREATED" });
+};
+
 const update = async (req, res) => {};
-const getById = async (req, res) => {};
-const deleteById = async (req, res) => {};
+
+const deleteById = async (id) => {
+  return await CartModel.updateOne(
+    { _id: id, status: "CREATED" },
+    { status: "DELETED" },
+    { new: true }
+  );
+};
 
 module.exports = {
   create,

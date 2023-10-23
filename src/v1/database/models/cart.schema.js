@@ -3,6 +3,12 @@ const { Schema } = mongoose;
 
 const cartSchema = new mongoose.Schema(
   {
+    status: {
+      type: String,
+      enum: ["CREATED", "PAID", "DELETED"],
+      required: true,
+      default: "CREATED",
+    },
     user_id: {
       type: Schema.Types.ObjectId,
       required: true,
