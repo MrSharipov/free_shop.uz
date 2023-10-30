@@ -1,13 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const router = express.Router();
-const cartsController = require("../controllers/carts.controller");
+const ordersController = require('../controllers/orders.controller');
+const {userAuthorization, adminAuthorization} = require('../middleware/auth.middleware');
 
 router.use(bodyParser.json());
 
 // register user
-router.post("/", (req, res) => cartsController.create(req, res));
-router.get("/:id", (req, res) => cartsController.getById(req, res));
-router.put("/:id", (req, res) => cartsController.update(req, res));
+router.post('/', userAuthorization, (req, res) => ordersController.create(req, res));
+router.get('/:id', userAuthorization, (req, res) => ordersController.getById(req, res));
+router.delete('/:id', adminAuthorization, (req, res) => ordersController.deleteById(req, res));
+router.put('/:id', adminAuthorization, (req, res) => ordersController.update(req, res));
 //delete route
 module.exports = router;
